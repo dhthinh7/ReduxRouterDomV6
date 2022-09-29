@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes} from 'react-router-dom'
 import HomeTemplate from './Templates/HomeTemplate';
-import Home from './Pages/Home/Home';
+import HomeWithNavigate from './Pages/Home/Home';
 import ReactForm from './Pages/ReactForm/ReactForm';
 import Shop from './Pages/Shop/Shop';
 import AdminTemplate from './Templates/AdminTemplate';
@@ -15,6 +15,7 @@ import { createBrowserHistory } from "history";
 import Detail from './Pages/Detail/Detail';
 import Search from './Pages/Search/Search';
 import DemoSearch from './Pages/DemoSearch/DemoSearch';
+import { WithNavigate } from './HOC/WithNavigate/WithNavigate';
 
 
 //Chuyển hướng được ở 1 file không phải là function component
@@ -27,8 +28,8 @@ function App() {
     <HistoryRouter history={history}>
         <Routes>
           <Route path='' element={<HomeTemplate />}>
-            <Route index path='' element={<Home />} ></Route>
-            <Route path='home' element={<Home />} ></Route>
+            <Route index path='' element={<HomeWithNavigate/>} ></Route>
+            <Route path='home' element={<HomeWithNavigate/>} ></Route>
             <Route path='form' element={<ReactForm />}></Route>
             <Route path='shop' element={<Shop />}></Route>
             <Route path='search' element={<Search />}></Route>
